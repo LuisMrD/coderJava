@@ -9,7 +9,7 @@ public class Mapp {
 
     public static void main(String[] args){
 
-        List<String> pokemons = Arrays.asList("squiRtle", "charMander", "buLbassaur");
+        List<String> pokemons = Arrays.asList("squiRtlE", "charManDer", "buLbaSSaur");
 
         UnaryOperator<String> getName = n -> Character.toString(n.charAt(0)).toUpperCase() + n.substring(1).toLowerCase();
 

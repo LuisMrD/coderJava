@@ -16,7 +16,7 @@ public class DesafioFilter {
         Predicate<Pokemon> evolved = p -> p.estagioEvolucao > 1;
         Predicate<Pokemon> notEvolved = p -> p.estagioEvolucao == 1;
 
-        Function<Pokemon, String> enabledPokemons = p -> p.nome + " esta disponivel !\n";
+        Function<Pokemon, String> avaiablePokemons = p -> p.nome + " esta disponivel !\n";
 
         Pokemon p1 = new Pokemon("Squirtle", "water", 1);
         Pokemon p2 = new Pokemon("Charmander", "fire", 1);
@@ -31,8 +31,8 @@ public class DesafioFilter {
 
         List<Pokemon> pokemons = Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10);
 
-        pokemons.stream().filter(typeWater).filter(evolved).map(enabledPokemons).forEach(System.out::println);
-        pokemons.stream().filter(typeFire).filter(notEvolved).map(enabledPokemons).forEach(System.out::println);
+        pokemons.stream().filter(typeWater).filter(evolved).map(avaiablePokemons).forEach(System.out::println);
+        pokemons.stream().filter(typeFire).filter(notEvolved).map(avaiablePokemons).forEach(System.out::println);
 
 
     }
