@@ -1,4 +1,4 @@
-package excecao.personalizadaA;
+package excecao.personalizadaB;
 
 import excecao.Aluno;
 
@@ -11,16 +11,17 @@ public class TesteValidacoes {
 
         try {
             Validar.aluno(aluno);
-        } catch (StringVaziaException | NumeroNegativoException e) {
+        } catch (NumeroNegativoException e) {
             //e.printStackTrace();
             e.getMessage();
         } //posso lancar aqui, outro catch aninhado
+        catch (StringVaziaException e) {
+            e.printStackTrace();
+        }
 
         try {
             Validar.aluno(aluno);
-        } catch (StringVaziaException e) {
-            e.getMessage();
-        } catch (NumeroNegativoException e) {
+        } catch (NumeroNegativoException | StringVaziaException e) {
             e.getMessage();
         }
 
