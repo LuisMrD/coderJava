@@ -1,5 +1,8 @@
 package Generiks;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CaixaTestes {
 
     public static void main(String[] args){
@@ -22,5 +25,11 @@ public class CaixaTestes {
         //classe herdada de uma classe generica, teve seu tipo definido na declaracao da heranca
         CaixaInt cx3 = new CaixaInt();
         cx3.guardar(123);
+
+        List<String> langs = Arrays.asList("PHP", "Java", "JS");
+
+        String lastItem = ListaUtil.getLastItem(langs);
+        System.out.println(lastItem);
+
     }
 }
