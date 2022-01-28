@@ -12,7 +12,6 @@ public class DAO2<E> {
     private EntityManager em;
     private Class<E> classe;
 
-
     static {
         try {
             emf = Persistence.createEntityManagerFactory("exercicios-jpa");
@@ -21,13 +20,13 @@ public class DAO2<E> {
         }
     }
 
-    public DAO2(Class<E> classe){
-        this.classe = classe;
-        em = emf.createEntityManager();
-    }
-
     public DAO2(){
         this(null);
+    }
+
+    public DAO2(Class<E> classe) {
+        em = emf.createEntityManager();
+        this.classe = classe;
     }
 
     public DAO2<E> startTransaction(){
@@ -35,27 +34,32 @@ public class DAO2<E> {
         return this;
     }
 
-    public DAO2<E> finishTransaction(){
+    public DAO2<E> endTransaction(){
         em.getTransaction().commit();
         return this;
     }
 
-    public DAO2<E> persistData(E entidade){
+    public DAO2<E> persist(Class<E> entidade){
         em.persist(entidade);
         return this;
     }
 
-    public List<E> getMoreThanOneResult(int limit, int offset){
-        String jpql = "select u from "+ classe +" as u";
+    public void closeTrsc(){
+        em.close();
+    }
+
+    public List<E> getMoreThanOne(){
+        String jpql = "select u from " + classe.getName() + " as u";
         TypedQuery<E> query = em.createQuery(jpql, classe);
-        query.setMaxResults(limit);
-        query.setFirstResult(offset);
         return query.getResultList();
     }
 
-    public E getDataById(Long id){
+    public E getOneById(Long id){
         return em.find(classe, id);
     }
+
+
+
 
 
 }

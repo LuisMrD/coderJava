@@ -60,5 +60,9 @@ public class DAO<E> {
         return em.find(classe, id);
     }
 
+    public void fecharConn(){
+        em.close();
+    }
+
 
 }
