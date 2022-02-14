@@ -12,7 +12,7 @@ public class Cliente {
 
     private String nome;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "assento_id", unique = true)
     private Assento assento;
 

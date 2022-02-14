@@ -3,12 +3,18 @@
              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="exercicios-jpa">
+    <persistence-unit name="exericicios-jpa">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>modelo.basico.Usuario</class>
         <class>modelo.basico.Produto</class>
         <class>modelo.basico.umpraum.Assento</class>
         <class>modelo.basico.umpraum.Cliente</class>
+        <class>modelo.basico.umpramuitos.ItemPedido</class>
+        <class>modelo.basico.umpramuitos.Pedido</class>
+        <class>modelo.basico.muitospramuitos.Tio</class>
+        <class>modelo.basico.muitospramuitos.Sobrinho</class>
+        <class>modelo.basico.muitospramuitos.Filme</class>
+        <class>modelo.basico.muitospramuitos.Ator</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver"

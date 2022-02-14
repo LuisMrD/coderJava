@@ -1,18 +1,16 @@
-package teste.basico.umpraum;
+package infra;
 
-import infra.DAO;
 import modelo.basico.umpraum.Assento;
 import modelo.basico.umpraum.Cliente;
 
-public class NovoClienteAssento1 {
+public class NovoClienteAssento {
 
     public static void main(String[] args) {
 
-        Assento assento = new Assento("Luis");
+        Assento assento = new Assento("4D");
         Cliente cliente = new Cliente("Luis", assento);
 
-        DAO<Object> dao = new DAO<>();
-
+        DAO<Cliente> dao = new DAO<>(Cliente.class);
         dao.incluirAtomico(cliente);
 
     }

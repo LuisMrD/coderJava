@@ -23,6 +23,13 @@ public class Produto {
     @Column(name = "prod_preco", precision = 10, scale = 2)
     Double preco;
 
+    public Produto(){}
+
+    public Produto(String nome, Double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
     public String getNome() {
         return nome;
     }

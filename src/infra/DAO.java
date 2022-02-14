@@ -9,23 +9,26 @@ import java.util.List;
 public class DAO<E> {
 
     private static EntityManagerFactory emf;
-    private EntityManager em;
-    private Class<E> classe;
+    private final EntityManager em;
+    private final Class<E> classe;
 
     static{
         try {
-            emf = Persistence.createEntityManagerFactory("exercicios-jpa");
+            emf = Persistence.createEntityManagerFactory("exericicios-jpa");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+
     public DAO(){
         this(null);
+        //emf = Persistence.createEntityManagerFactory("exericicios-jpa");
     }
 
     public DAO(Class<E> classe){
         this.classe = classe;
+        //emf = Persistence.createEntityManagerFactory("exericicios-jpa");
         em = emf.createEntityManager();
     }
 
@@ -56,7 +59,7 @@ public class DAO<E> {
         return query.getResultList();
     }
 
-    public E obterUsuario(Long id){
+    public E obterPorID(Long id){
         return em.find(classe, id);
     }
 

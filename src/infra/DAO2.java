@@ -1,5 +1,7 @@
 package infra;
 
+import modelo.basico.muitospramuitos.Filme;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -14,7 +16,7 @@ public class DAO2<E> {
 
     static {
         try {
-            emf = Persistence.createEntityManagerFactory("exercicios-jpa");
+            emf = Persistence.createEntityManagerFactory("exericicios-jpa");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +41,7 @@ public class DAO2<E> {
         return this;
     }
 
-    public DAO2<E> persist(Class<E> entidade){
+    public DAO2<E> persist(Filme entidade){
         em.persist(entidade);
         return this;
     }
